@@ -1,0 +1,14 @@
+import { Maybe } from "purify-ts/Maybe";
+
+const log = console.log;
+
+function episodeTitleWithoutNumber(title?: string) {
+  return Maybe.fromNullable(title)
+    .map((t) => t.replace(/^\d*. /, ""))
+    .orDefault("");
+}
+
+const title = "1 Getting Started";
+
+const a = episodeTitleWithoutNumber(title);
+log(a);
